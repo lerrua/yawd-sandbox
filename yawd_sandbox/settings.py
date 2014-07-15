@@ -30,16 +30,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'yawdadmin',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'blog',
+    'yawdadmin',
+    'django.contrib.admin',
+
 )
 
 MIDDLEWARE_CLASSES = (
+    'yawdadmin.middleware.PopupMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,6 +54,9 @@ MIDDLEWARE_CLASSES = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.static",
 )
 
 
